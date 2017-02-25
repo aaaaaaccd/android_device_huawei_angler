@@ -25,4 +25,6 @@ endif
 
 LOCAL_MODULE := power.angler
 LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_OWNER := qcom
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
