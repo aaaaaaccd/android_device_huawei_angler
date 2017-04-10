@@ -1,0 +1,30 @@
+# Policy for /vendor/bin/wcnss_filter
+type wcnss_filter, domain;
+type wcnss_filter_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(wcnss_filter)
+
+# talk to /dev/ttyHS0
+allow wcnss_filter hci_attach_dev:chr_file rw_file_perms;
+
+set_prop(wcnss_filter, wc_prop)
+
+# write to proc/sysrq-trigger
+allow wcnss_filter proc_sysrq:file w_file_perms;
+
+# access to /dev/diag on debug builds
+userdebug_or_eng(`
+  allow wcnss_filter diag_device:chr_file rw_file_perms;
+')
+
+# Allow reading Bluetooth-related system properties
+get_prop(wcnss_filter, bluetooth_prop)
+
+# TODO(b/34274385): Remove this once Bluetooh HAL is guaranteed to not be run in passthrough mode
+# What's going on here is that Bluetooth HAL is talking over sockets to wcnss_filter, which is
+# permitted. However, those rules target hal_bluetooth rather than hal_bluetooth_server and thus
+# are also granted to all clients of Bluetooth HAL (e.g., bluetooth daemon) which are core
+# components, and socket communications between system components and vendor components are not
+# permted.
+# Once we switch full Treble devices to binderized only mode, this issue will disappear.
+typeattribute wcnss_filter socket_between_core_and_vendor_violators;
