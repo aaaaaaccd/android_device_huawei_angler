@@ -15,4 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/statix_angler.mk
+    $(LOCAL_DIR)/statix_angler.mk \
+    $(LOCAL_DIR)/statix_angler_treble.mk
