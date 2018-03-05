@@ -208,6 +208,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl
 
+# TODO(b/31817599) remove when angler_treble goes away
+ifeq ($(TARGET_PRODUCT), angler_treble)
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service
+endif
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
@@ -310,12 +316,25 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
     Tag \
-    nfc_nci.angler \
     android.hardware.nfc@1.0-impl \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl
+
+# TODO(b/31817599) remove when angler_treble goes away
+ifeq ($(TARGET_PRODUCT), angler_treble)
+PRODUCT_PACKAGES += \
+    nfc_nci.angler_treble \
+    android.hardware.nfc@1.0-service \
+    android.hardware.vibrator@1.0-service \
+    android.hardware.thermal@1.0-service
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.nfc_nci=angler_treble
+else
+PRODUCT_PACKAGES += \
+    nfc_nci.angler
+endif
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -502,10 +521,10 @@ PRODUCT_COPY_FILES += \
 
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter aosp_angler, $(TARGET_PRODUCT)))
+ifeq (,$(filter aosp_angler aosp_angler_treble, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
     NexusLogger
-endif # aosp_angler
+endif # aosp_angler || aosp_angler_treble
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.userdebug:root/init.angler.diag.rc
