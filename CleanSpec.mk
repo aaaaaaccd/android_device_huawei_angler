@@ -63,3 +63,22 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/ETC/system_build_prop_intermedi
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/build.prop)
 $(call add-clean-step, rm -f $(PRODUCT_OUT)/system/lib/hw/android.hardware.broadcastradio@1.0-impl.so)
 $(call add-clean-step, rm -f $(PRODUCT_OUT)/system/lib64/hw/android.hardware.broadcastradio@1.0-impl.so)
+
+# Move vndk-sp libs from /vendor to /system
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/vndk-sp)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/vndk-sp)
+
+# Move /system/lib/vndk-sp to /system/lib/vndk-sp-26.1.0
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp)
+
+# Revert: Move /system/lib/vndk-sp to /system/lib/vndk-sp-26.1.0
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp-*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp-*)
+
+# Remove /system/lib[64]/vndk-sp/libz.so
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libz.vndk-sp_*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/symbols/system/lib/vndk-sp/libz.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/symbols/system/lib64/vndk-sp/libz.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/vndk-sp/libz.so)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/vndk-sp/libz.so)
