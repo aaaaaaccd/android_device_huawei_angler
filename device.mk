@@ -564,6 +564,35 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358
 PRODUCT_COPY_FILES += \
     device/huawei/angler/gps.conf:system/etc/gps.conf:qcom
 
+# VNDK
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0.vndk-sp\
+    android.hardware.graphics.allocator@2.0.vndk-sp\
+    android.hardware.graphics.mapper@2.0.vndk-sp\
+    android.hardware.graphics.common@1.0.vndk-sp\
+    libhwbinder.vndk-sp\
+    libbase.vndk-sp\
+    libcutils.vndk-sp\
+    libhardware.vndk-sp\
+    libhidlbase.vndk-sp\
+    libhidltransport.vndk-sp\
+    libutils.vndk-sp\
+    libc++.vndk-sp\
+    libRS_internal.vndk-sp\
+    libRSDriver.vndk-sp\
+    libRSCpuRef.vndk-sp\
+    libbcinfo.vndk-sp\
+    libblas.vndk-sp\
+    libft2.vndk-sp\
+    libpng.vndk-sp\
+    libcompiler_rt.vndk-sp\
+    libbacktrace.vndk-sp\
+    libunwind.vndk-sp\
+    liblzma.vndk-sp\
+    
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.vndk.version=26.1.0 \
+    
 # b/29995499
 $(call add-product-sanitizer-module-config,cameraserver,never)
 $(call add-product-sanitizer-module-config,mm-qcamera-daemon,never)
