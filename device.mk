@@ -593,6 +593,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.vndk.version=26.1.0 \
     
+# Vendor patch level 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.patch.level=OPM6.171019.030.B1
+
 # b/29995499
 $(call add-product-sanitizer-module-config,cameraserver,never)
 $(call add-product-sanitizer-module-config,mm-qcamera-daemon,never)
