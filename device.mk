@@ -238,6 +238,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service \
     camera.msm8994 \
     libcamera \
     libmmcamera_interface \
@@ -270,7 +271,8 @@ PRODUCT_PACKAGES += \
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
@@ -319,12 +321,13 @@ PRODUCT_PACKAGES += \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
 
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-service \
     android.hardware.vibrator@1.0-service \
-    android.hardware.thermal@1.0-service \
+    android.hardware.thermal@1.1-service \
     nfc_nci.angler
 
 
@@ -340,7 +343,7 @@ PRODUCT_PACKAGES += \
 # Thermal HAL
 PRODUCT_PACKAGES += \
     thermal.angler \
-    android.hardware.thermal@1.0-impl
+    android.hardware.thermal@1.1-impl
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
