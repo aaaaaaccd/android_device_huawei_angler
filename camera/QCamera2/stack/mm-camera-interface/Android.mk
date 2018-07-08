@@ -39,7 +39,7 @@ LOCAL_CFLAGS += -DCAMERA_ION_HEAP_ID=ION_IOMMU_HEAP_ID
 LOCAL_C_INCLUDES+= $(kernel_includes)
 LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps)
 
-LOCAL_C_INCLUDES += hardware/qcom/media/msm8974/mm-core/inc
+LOCAL_C_INCLUDES += hardware/qcom/media/msm8994/mm-core/inc
 
 ifneq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 17 ))" )))
   LOCAL_CFLAGS += -include bionic/libc/kernel/common/linux/socket.h
@@ -53,7 +53,7 @@ LOCAL_MODULE           := libmmcamera_interface
 LOCAL_PRELINK_MODULE   := false
 LOCAL_SHARED_LIBRARIES := libdl libcutils liblog
 LOCAL_MODULE_TAGS := optional
-
+LOCAL_VENDOR_MODULE := true
 LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 include $(BUILD_SHARED_LIBRARY)
 
