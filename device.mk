@@ -272,7 +272,8 @@ PRODUCT_PACKAGES += \
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
+    android.hardware.gatekeeper@1.0-service \
+    gatekeeper.msm8994
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
@@ -593,10 +594,11 @@ PRODUCT_PACKAGES += \
     libunwind.vndk-sp\
     liblzma.vndk-sp\
 
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.vendor.vndk.version=26.1.0 \
-BOARD_VNDK_VERSION := current
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.vndk.version=26.1.0 \
+
 PRODUCT_PACKAGES += vndk_package
+
 # Vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.patch.level=OPM6.171019.030.B1
