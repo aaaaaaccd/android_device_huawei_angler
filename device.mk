@@ -567,7 +567,7 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358
 PRODUCT_COPY_FILES += \
     device/huawei/angler/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf:qcom
 
-# VNDK
+# VNDK (unused when BOARD_VNDK_VERSION is defined)
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0.vndk-sp\
     android.hardware.graphics.allocator@2.0.vndk-sp\
@@ -592,11 +592,12 @@ PRODUCT_PACKAGES += \
     libbacktrace.vndk-sp\
     libunwind.vndk-sp\
     liblzma.vndk-sp\
-    
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=26.1.0 \
-    
-# Vendor patch level 
+
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.vendor.vndk.version=26.1.0 \
+BOARD_VNDK_VERSION := current
+PRODUCT_PACKAGES += vndk_package
+# Vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.patch.level=OPM6.171019.030.B1
 
