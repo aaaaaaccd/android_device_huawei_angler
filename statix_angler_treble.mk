@@ -20,7 +20,7 @@
 # Inherit from the common product configuration
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
-PRODUCT_NAME := statix_angler
+PRODUCT_NAME := statix_angler_treble
 PRODUCT_DEVICE := angler
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 6P
