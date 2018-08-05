@@ -11,3 +11,6 @@ type ssd_block_device, dev_type;
 type subsys_modem_device, dev_type;
 type thermal_engine_device, dev_type;
 type v41_subdev_device, dev_type;
+type sdsprpc_device, dev_type;
+type ssr_device, dev_type;
+type at_device, dev_type;
