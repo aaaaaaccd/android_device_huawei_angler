@@ -1,2 +1,6 @@
 
 allow hal_graphics_allocator sysfs_hal_gralloc:file r_file_perms;
+
+# kgsl
+allow hal_graphics_allocator debugfs_kgsl_proc:dir { search read open };
+allow hal_graphics_allocator debugfs_kgsl_proc:file { open read write getattr setattr };
