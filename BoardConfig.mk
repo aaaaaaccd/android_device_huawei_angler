@@ -112,6 +112,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler/releasetools
 BOARD_SEPOLICY_DIRS += \
 	device/huawei/angler/sepolicy
 
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/huawei/angler/sepolicy/private
+
 TARGET_USES_64_BIT_BINDER := true
 
 TARGET_USES_AOSP := true

@@ -3,5 +3,11 @@ allow hal_graphics_composer_default servicemanager:binder { call };
 allow hal_graphics_composer_default vndbinder_device:chr_file { read };
 allow hal_graphics_composer_default sysfs_hal_gralloc:file { read open getattr };
 
+# for hal_graphics_composer
 vndbinder_use(hal_graphics_composer_default);
 
+allow hal_graphics_composer_default sysfs_graphics_comp:file { read open };
+
+# kgsl
+allow hal_graphics_composer debugfs_kgsl_proc:dir { search read open };
+allow hal_graphics_composer debugfs_kgsl_proc:file { open read write getattr setattr };
