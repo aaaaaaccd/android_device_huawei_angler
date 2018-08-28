@@ -202,9 +202,6 @@
 # WiFi mtu
 /sys/devices/virtual/net/rmnet_data0/mtu  u:object_r:sysfs_wifi_mtu:s0
 
-# leds
-/sys/devices/soc\.0/.*/leds/.*(/.*)? u:object_r:sysfs_bgleds:s0
-
 # CPU missing policies for max_freq and min_freq
 /sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0(/.*)? u:object_r:sysfs_cpu:s0
 
