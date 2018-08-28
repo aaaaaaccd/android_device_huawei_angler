@@ -219,3 +219,6 @@
 
 # enable esl
 /sys/module/msm_poweroff/parameters/enable_edl u:object_r:sysfs_enable_edl:s0
+
+# leds
+/sys/devices/soc.0/leds-qpnp-26/leds(/.*) u:object_r:sysfs_qpnp_26:s0
