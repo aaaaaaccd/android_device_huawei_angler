@@ -4,6 +4,5 @@ allow radio rild_qmuxd_socket:sock_file write;
 qmux_socket(radio)
 
 # KGSL
-avc: denied { search } for name="proc" dev="debugfs" ino=11313 scontext=u:r:radio:s0 tcontext=u:object_r:debugfs_kgsl_proc:s0 tclass=dir permissive=0
 allow radio debugfs_kgsl_proc:dir { search read open };
 allow radio debugfs_kgsl_proc:file { open read write getattr setattr };
