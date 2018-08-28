@@ -208,9 +208,8 @@
 # CPU missing policies for max_freq and min_freq
 /sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0(/.*)? u:object_r:sysfs_cpu:s0
 
-# dirty fix for dyn_pu and ad in hal_graphics_composer_default domanin
-/sys/devices/virtual/graphics/fb[0-1]/dyn_pu u:object_r:sysfs_graphics_comp:s0
-/sys/devices/virtual/graphics/fb[0-1]/ad u:object_r:sysfs_graphics_comp:s0
+# graphics stuffs
+/sys/devices/virtual/graphics/fb[0-1](/.*)? u:object_r:sysfs_graphics_comp:s0
 
 # rmt storage
 /sys/kernel/debug/rmt_storage(/.*)? u:object_r:debugfs_rmt_storage:s0
