@@ -76,3 +76,6 @@ type sysfs_enable_edl, fs_type, sysfs_type;
 
 # kgsl
 type debugfs_kgsl_proc, fs_type, debugfs_type;
+
+# leds
+type sysfs_qpnp_26, fs_type, sysfs_type;
