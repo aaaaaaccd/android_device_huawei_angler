@@ -53,9 +53,6 @@ type sysfs_battery, fs_type, sysfs_type;
 # wifi mtu
 type sysfs_wifi_mtu, fs_type, sysfs_type;
 
-# brightness
-type sysfs_bgleds, fs_type, sysfs_type;
-
 # cpu
 type sysfs_cpu, fs_type, sysfs_type;
 

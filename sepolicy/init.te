@@ -28,10 +28,6 @@ allow init sysfs_battery:lnk_file rw_file_perms;
 # sys tune
 allow init sysfs_tune:file rw_file_perms;
 
-# led_bg
-allow init sysfs_bgleds:file setattr;
-allow init sysfs_bgleds:lnk_file rw_file_perms;
-
 # cpu
 allow init sysfs_cpu:file setattr;
 allow init sysfs_thermal:file setattr;
