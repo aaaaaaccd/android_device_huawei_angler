@@ -47,3 +47,6 @@ allow init sysfs_enable_edl:file rw_file_perms;
 
 # todo fix missing labels
 allow init sysfs:file { setattr getattr };
+
+# read_ahead_kb
+allow init sysfs_dm:file rw_file_perms;

@@ -50,3 +50,9 @@ allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
 allow system_server unlabeled:file unlink;
 
 allow system_server crash_dump:process getpgid;
+
+# vendor data
+allow system_server vendor_data_file:dir r_dir_perms;
+
+# HubConnection
+allow system_server sensors_cal_file:file r_file_perms;
